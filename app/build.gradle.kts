@@ -78,6 +78,7 @@ dependencies {
 	implementation(libs.okhttp.interceptor)
 	implementation(libs.hilt)
 	kapt(libs.hilt.compiler)
+	implementation(libs.hilt.navigation)
 
 	testImplementation(libs.junit)
 

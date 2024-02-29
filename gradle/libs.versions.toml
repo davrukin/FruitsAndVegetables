@@ -15,7 +15,8 @@ serializationJson = "1.6.0"
 retrofit = "2.9.0"
 retrofit-kotlinx-serialization = "1.0.0"
 okhttp = "4.12.0"
-hilt = "2.44"
+hilt = "2.51"
+hilt-navigation = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +45,7 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp" }
 okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

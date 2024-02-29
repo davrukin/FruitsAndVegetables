@@ -1,5 +1,6 @@
 package com.davrukin.fruitsandvegetables.remote
 
+import android.net.ConnectivityManager
 import com.davrukin.fruitsandvegetables.data.Constants
 import com.davrukin.fruitsandvegetables.data.ProduceItemPage
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -9,17 +10,24 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
-class NetworkClientRetrofit : NetworkClient {
+class NetworkClientRetrofit(
+	private val connectivityManager: ConnectivityManager,
+) : NetworkClient {
 
 	private val contentType = "application/json".toMediaType()
 
+	// TODO: inject
+
 	private val okHttpClient = run {
-		val interceptor = HttpLoggingInterceptor()
-		interceptor.level = HttpLoggingInterceptor.Level.BODY
+		val loggingInterceptor = HttpLoggingInterceptor()
+		loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
+		val networkInterceptor = NetworkMonitorInterceptor(connectivityManager)
 
 		OkHttpClient
 			.Builder()
-			.addInterceptor(interceptor)
+			.addInterceptor(loggingInterceptor)
+			.addInterceptor(networkInterceptor)
 			.build()
 	}
 
