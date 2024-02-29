@@ -15,6 +15,6 @@ class NetworkClientRetrofit @Inject constructor(
 	}
 
 	override suspend fun getFruits(pageNumber: Int): ProduceItemPage {
-		return service.getFruits(pageNumber)
+		return service.getFruits(pageNumber - 1)
 	}
 }
