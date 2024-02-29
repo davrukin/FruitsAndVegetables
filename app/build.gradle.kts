@@ -1,6 +1,9 @@
 plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.jetbrains.kotlin.android)
+	alias(libs.plugins.kotlin.serialization)
+	alias(libs.plugins.dagger.hilt)
+	kotlin("kapt")
 }
 
 android {
@@ -40,12 +43,15 @@ android {
 		compose = true
 	}
 	composeOptions {
-		kotlinCompilerExtensionVersion = "1.5.1"
+		kotlinCompilerExtensionVersion = "1.5.3"
 	}
 	packaging {
 		resources {
 			excludes += "/META-INF/{AL2.0,LGPL2.1}"
 		}
+	}
+	kapt {
+		correctErrorTypes = true
 	}
 }
 
@@ -59,11 +65,27 @@ dependencies {
 	implementation(libs.androidx.ui.graphics)
 	implementation(libs.androidx.ui.tooling.preview)
 	implementation(libs.androidx.material3)
+
+	implementation(libs.paging.runtime)
+	implementation(libs.paging.compose)
+	implementation(libs.ktor.core)
+	implementation(libs.ktor.cio)
+	implementation(libs.kotlin.serialization.json)
+	implementation(libs.retrofit)
+	implementation(libs.retrofit.kotlinx.serialization)
+	implementation(platform(libs.okhttp.bom))
+	implementation(libs.okhttp)
+	implementation(libs.okhttp.interceptor)
+	implementation(libs.hilt)
+	kapt(libs.hilt.compiler)
+
 	testImplementation(libs.junit)
+
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
 	androidTestImplementation(platform(libs.androidx.compose.bom))
 	androidTestImplementation(libs.androidx.ui.test.junit4)
+
 	debugImplementation(libs.androidx.ui.tooling)
 	debugImplementation(libs.androidx.ui.test.manifest)
 }
