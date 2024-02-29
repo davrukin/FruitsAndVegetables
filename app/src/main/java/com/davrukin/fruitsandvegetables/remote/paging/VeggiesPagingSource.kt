@@ -3,9 +3,7 @@ package com.davrukin.fruitsandvegetables.remote.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.davrukin.fruitsandvegetables.data.ProduceItem
-import com.davrukin.fruitsandvegetables.data.ProduceItemPage
-import com.davrukin.fruitsandvegetables.remote.NetworkClient
-import com.davrukin.fruitsandvegetables.remote.RetrofitService
+import com.davrukin.fruitsandvegetables.remote.client.NetworkClient
 
 class VeggiesPagingSource(
 	private val networkClient: NetworkClient,

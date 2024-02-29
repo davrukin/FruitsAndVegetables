@@ -5,6 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.davrukin.fruitsandvegetables.data.Constants
 import com.davrukin.fruitsandvegetables.data.ProduceItem
+import com.davrukin.fruitsandvegetables.remote.client.NetworkClient
 import com.davrukin.fruitsandvegetables.remote.paging.VeggiesPagingSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

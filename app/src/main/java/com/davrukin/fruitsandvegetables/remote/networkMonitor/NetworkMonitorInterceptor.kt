@@ -1,4 +1,4 @@
-package com.davrukin.fruitsandvegetables.remote
+package com.davrukin.fruitsandvegetables.remote.networkMonitor
 
 import android.net.ConnectivityManager
 import okhttp3.Interceptor
@@ -7,15 +7,15 @@ import okio.IOException
 import javax.inject.Inject
 
 class NetworkMonitorInterceptor(
-	private val connectivityManager: ConnectivityManager, // TODO: fix concrete
+	private val networkMonitor: NetworkMonitor,
 ) : Interceptor {
 	override fun intercept(chain: Interceptor.Chain): Response {
 		val request = chain.request()
 
-		if (connectivityManager.activeNetwork != null) {
+		if (networkMonitor.isConnected()) {
 			return chain.proceed(request)
 		} else {
-			throw IOException("No network")
+			throw NoNetworkException("No network") // TODO: error types, messaging strings, etc.
 		}
 	}
 }

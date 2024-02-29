@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FruitVegViewModel @Inject constructor(
-	private val repository: NetworkRepository,
+	repository: NetworkRepository,
 ) : ViewModel() {
 
 	val veggies: Flow<PagingData<ProduceItem>> = repository

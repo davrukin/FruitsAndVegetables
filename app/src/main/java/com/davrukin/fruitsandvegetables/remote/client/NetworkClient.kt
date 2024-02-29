@@ -1,4 +1,4 @@
-package com.davrukin.fruitsandvegetables.remote
+package com.davrukin.fruitsandvegetables.remote.client
 
 import com.davrukin.fruitsandvegetables.data.ProduceItemPage
 
