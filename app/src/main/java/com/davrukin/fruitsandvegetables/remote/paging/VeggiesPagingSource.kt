@@ -28,11 +28,15 @@ class VeggiesPagingSource(
 			val page = params.key ?: 1
 			val response = networkClient.getVeggies(pageNumber = page)
 
-			LoadResult.Page(
-				data = response.produceItems,
-				prevKey = if (page == 1) null else page.minus(1),
-				nextKey = if (response.produceItems.isEmpty()) null else page.plus(1),
-			)
+			if ((response.currentPage + 1) >= response.totalPages) {
+				LoadResult.Error(EndOfPagingError())
+			} else {
+				LoadResult.Page(
+					data = response.produceItems,
+					prevKey = if (page == 1) null else page.minus(1),
+					nextKey = if (response.produceItems.isEmpty()) null else page.plus(1),
+				)
+			}
 		} catch (e: Exception) {
 			LoadResult.Error(e)
 		}
