@@ -29,7 +29,11 @@ abstract class NetworkModule {
 	@Binds
 	@Singleton
 	abstract fun provideNetworkClient(client: NetworkClientRetrofit): NetworkClient
-	// can swap out implementation with ktor one if desired
+
+	// can swap out implementation with ktor one if desired:
+	/*@Binds
+	@Singleton
+	abstract fun provideNetworkClient(client: NetworkClientKtor): NetworkClient*/
 
 	companion object {
 		@Provides
