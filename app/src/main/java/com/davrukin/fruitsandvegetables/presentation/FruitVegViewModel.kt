@@ -52,5 +52,13 @@ class FruitVegViewModel @Inject constructor(
 		.getFruitsAndVeggies()
 		.cachedIn(viewModelScope)
 
+	/*
+	 * as a result of the filtering, these three lists are cached in memory.
+	 * there could be a performance optimization to make where "veggies" and "fruits" are
+	 * combined in the screen instead of having a third redundant flow containing all of them,
+	 * duplicating memory usage. I implemented filtering last after having implemented the combined query,
+	 * which is why it's done this way now.
+	 */
+
 	// TODO: there seems to be a case where vertical --> horizontal --> vertical + scroll to top & back down + light/dark change causes re-paging
 }

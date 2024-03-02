@@ -1,9 +1,11 @@
 package com.davrukin.fruitsandvegetables.data
 
+import androidx.compose.runtime.Immutable
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
+@Immutable
 data class ProduceItemPage(
 	val currentPage: Int,
 	val totalPages: Int,
