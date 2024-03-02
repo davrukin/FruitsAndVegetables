@@ -26,7 +26,9 @@ fun ErrorMessageRow(state: LoadState.Error) {
 @Composable
 fun ErrorMessageRowPreview() {
 	FruitsAndVegetablesTheme {
-		ErrorMessageRow(state = LoadState.Error(Throwable(message = "Compose Preview Error")))
+		ErrorMessageRow(
+			state = LoadState.Error(Throwable(message = "Compose Preview Error")),
+		)
 	}
 }
 
@@ -35,7 +37,9 @@ fun ErrorMessageRowPreview() {
 @Composable
 fun ErrorMessageRowPreviewNoNetworkException() {
 	FruitsAndVegetablesTheme {
-		ErrorMessageRow(state = LoadState.Error(NoNetworkException()))
+		ErrorMessageRow(
+			state = LoadState.Error(NoNetworkException()),
+		)
 	}
 }
 
@@ -44,6 +48,8 @@ fun ErrorMessageRowPreviewNoNetworkException() {
 @Composable
 fun ErrorMessageRowPreviewEndOfPagingError() {
 	FruitsAndVegetablesTheme {
-		ErrorMessageRow(state = LoadState.Error(EndOfPagingError(60)))
+		ErrorMessageRow(
+			state = LoadState.Error(EndOfPagingError(60)),
+		)
 	}
 }

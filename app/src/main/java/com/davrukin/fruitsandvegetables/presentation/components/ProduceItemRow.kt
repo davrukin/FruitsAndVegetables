@@ -33,35 +33,36 @@ fun ProduceItemRow(
 			.fillMaxWidth()
 			.padding(12.dp)
 			.clip(RoundedCornerShape(8.dp))
-			.background(Color.LightGray)
-	) {
-		Text(
-			text = produceItem.name,
-			fontFamily = FontFamily.Monospace,
-			modifier = Modifier.padding(
-				start = 4.dp,
-				end = 4.dp,
-				top = 4.dp,
-			),
-		)
-		Text(
-			text = produceItem.fullName,
-			fontStyle = FontStyle.Italic,
-			fontFamily = FontFamily.Monospace,
-			modifier = Modifier.padding(
-				horizontal = 4.dp,
-			),
-		)
-		Text(
-			text = produceItem.calories,
-			fontFamily = FontFamily.Monospace,
-			modifier = Modifier.padding(
-				start = 4.dp,
-				end = 4.dp,
-				bottom = 4.dp,
-			),
-		)
-	}
+			.background(Color.LightGray),
+		content = {
+			Text(
+				text = produceItem.name,
+				fontFamily = FontFamily.Monospace,
+				modifier = Modifier.padding(
+					start = 4.dp,
+					end = 4.dp,
+					top = 4.dp,
+				),
+			)
+			Text(
+				text = produceItem.fullName,
+				fontStyle = FontStyle.Italic,
+				fontFamily = FontFamily.Monospace,
+				modifier = Modifier.padding(
+					horizontal = 4.dp,
+				),
+			)
+			Text(
+				text = produceItem.calories,
+				fontFamily = FontFamily.Monospace,
+				modifier = Modifier.padding(
+					start = 4.dp,
+					end = 4.dp,
+					bottom = 4.dp,
+				),
+			)
+		},
+	)
 }
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)

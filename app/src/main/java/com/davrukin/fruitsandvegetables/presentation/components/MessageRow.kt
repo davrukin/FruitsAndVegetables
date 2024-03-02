@@ -30,14 +30,15 @@ fun MessageRow(
 			.fillMaxWidth()
 			.padding(12.dp)
 			.clip(RoundedCornerShape(8.dp))
-			.background(Color.LightGray)
-	) {
-		Text(
-			text = message,
-			fontFamily = FontFamily.Monospace,
-			modifier = Modifier.padding(4.dp),
-		)
-	}
+			.background(Color.LightGray),
+		content = {
+			Text(
+				text = message,
+				fontFamily = FontFamily.Monospace,
+				modifier = Modifier.padding(4.dp),
+			)
+		},
+	)
 }
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)

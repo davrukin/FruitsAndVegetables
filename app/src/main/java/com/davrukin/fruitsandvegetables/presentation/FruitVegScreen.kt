@@ -77,9 +77,7 @@ fun FruitVegScreen(
 						}
 					}
 
-					else -> {
-						viewModel.updateLoadingState(LoadingState.DONE)
-					}
+					else -> viewModel.updateLoadingState(LoadingState.DONE)
 				}
 
 				when (val state = fruitsAndVeggies.loadState.append) { // pagination
@@ -95,18 +93,19 @@ fun FruitVegScreen(
 						}
 					}
 
-					is LoadState.Loading -> { // pagination loading ui
-						viewModel.updateLoadingState(LoadingState.LOADING)
-					}
+					// pagination loading ui
+					is LoadState.Loading -> viewModel.updateLoadingState(LoadingState.LOADING)
 
-					else -> {
-						viewModel.updateLoadingState(LoadingState.DONE)
-					}
+					else -> viewModel.updateLoadingState(LoadingState.DONE)
 				}
 			},
 		)
 
-		PullRefreshIndicator(uiState.currentState == LoadingState.LOADING, pullToRefreshState, Modifier.align(Alignment.TopCenter))
+		PullRefreshIndicator(
+			refreshing = uiState.currentState == LoadingState.LOADING,
+			state = pullToRefreshState,
+			modifier = Modifier.align(Alignment.TopCenter),
+		)
 	}
 }
 
