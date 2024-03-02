@@ -1,3 +1,11 @@
 package com.davrukin.fruitsandvegetables.remote.paging
 
-class EndOfPagingError(pageCount: Int) : Throwable(message = "No more pages to load; Total items loaded = $pageCount")
+import androidx.annotation.StringRes
+import com.davrukin.fruitsandvegetables.R
+
+class EndOfPagingError(
+	val itemCount: Int,
+) : Throwable() {
+
+	@StringRes val messageId: Int = R.string.error_end_paging
+}

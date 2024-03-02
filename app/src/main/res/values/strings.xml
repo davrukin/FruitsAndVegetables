@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">FruitsAndVegetables</string>
+    <string name="app_name">Fruits and Vegetables</string>
+    <string name="loading">Loading</string>
+    <string name="error_no_network">No network connection</string>
+    <string name="error_end_paging">No more pages to load; Total items loaded = %1$s</string>
+    <string name="success_all_loaded">All data loaded. Total items: %1$d</string>
 </resources>

@@ -30,6 +30,7 @@ class FruitVegViewModel @Inject constructor(
 		}
 	}
 
+	// here in case desire to load individually
 	val veggies: Flow<PagingData<ProduceItem>> = repository
 		.getVeggies()
 		.cachedIn(viewModelScope)

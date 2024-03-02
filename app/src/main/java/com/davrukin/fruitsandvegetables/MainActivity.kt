@@ -14,6 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import com.davrukin.fruitsandvegetables.presentation.FruitVegScreen
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
 						 TopAppBar(
 							 title = {
 								 Text(
-									 text = "Fruits and Vegetables",
+									 text = stringResource(id = R.string.app_name),
 									 fontFamily = FontFamily.Monospace,
 								 )
 							 },

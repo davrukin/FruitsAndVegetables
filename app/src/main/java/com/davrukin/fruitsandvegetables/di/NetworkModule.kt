@@ -60,7 +60,7 @@ abstract class NetworkModule {
 		@Provides
 		@Singleton
 		fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-			val contentType = "application/json".toMediaType()
+			val contentType = Constants.CONTENT_TYPE_JSON.toMediaType()
 
 			return Retrofit
 				.Builder()
