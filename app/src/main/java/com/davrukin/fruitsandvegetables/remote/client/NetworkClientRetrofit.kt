@@ -11,10 +11,10 @@ class NetworkClientRetrofit @Inject constructor(
 	private val service = retrofit.create(RetrofitService::class.java)
 
 	override suspend fun getVeggies(pageNumber: Int): ProduceItemPage {
-		return service.getVeggies(pageNumber - 1)
+		return service.getVeggies(pageNumber)
 	}
 
 	override suspend fun getFruits(pageNumber: Int): ProduceItemPage {
-		return service.getFruits(pageNumber - 1)
+		return service.getFruits(pageNumber)
 	}
 }

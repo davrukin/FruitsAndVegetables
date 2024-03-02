@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,8 +32,16 @@ class FruitVegViewModel @Inject constructor(
 	}
 
 	val veggies: Flow<PagingData<ProduceItem>> = repository
-			.getVeggies()
-			.cachedIn(viewModelScope)
+		.getVeggies()
+		.cachedIn(viewModelScope)
 
-	// TODO: make sure initial page and total size are correct with paging code
+	val fruits: Flow<PagingData<ProduceItem>> = repository
+		.getFruits()
+		.cachedIn(viewModelScope)
+
+	val fruitsAndVeggies: Flow<PagingData<ProduceItem>> = repository
+		.getFruitsAndVeggies()
+		.cachedIn(viewModelScope)
+
+	// TODO: there seems to be a case where vertical --> horizontal --> vertical + scroll to top & back down + light/dark change causes re-paging
 }

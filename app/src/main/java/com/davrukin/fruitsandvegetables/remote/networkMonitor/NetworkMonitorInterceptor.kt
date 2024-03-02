@@ -15,7 +15,7 @@ class NetworkMonitorInterceptor(
 		if (networkMonitor.isConnected()) {
 			return chain.proceed(request)
 		} else {
-			throw NoNetworkException("No network") // TODO: error types, messaging strings, etc.
+			throw NoNetworkException()
 		}
 	}
 }

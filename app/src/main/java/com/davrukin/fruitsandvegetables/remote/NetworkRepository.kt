@@ -6,8 +6,11 @@ import androidx.paging.PagingData
 import com.davrukin.fruitsandvegetables.data.Constants
 import com.davrukin.fruitsandvegetables.data.ProduceItem
 import com.davrukin.fruitsandvegetables.remote.client.NetworkClient
+import com.davrukin.fruitsandvegetables.remote.paging.FruitsAndVeggiesPagingSource
+import com.davrukin.fruitsandvegetables.remote.paging.FruitsPagingSource
 import com.davrukin.fruitsandvegetables.remote.paging.VeggiesPagingSource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(
@@ -20,6 +23,24 @@ class NetworkRepository @Inject constructor(
 		),
 		pagingSourceFactory = {
 			VeggiesPagingSource(networkClient)
+		},
+	).flow
+
+	fun getFruits(): Flow<PagingData<ProduceItem>> = Pager(
+		config = PagingConfig(
+			pageSize = Constants.PAGE_SIZE,
+		),
+		pagingSourceFactory = {
+			FruitsPagingSource(networkClient)
+		},
+	).flow
+
+	fun getFruitsAndVeggies(): Flow<PagingData<ProduceItem>> = Pager(
+		config = PagingConfig(
+			pageSize = Constants.PAGE_SIZE,
+		),
+		pagingSourceFactory = {
+			FruitsAndVeggiesPagingSource(networkClient)
 		},
 	).flow
 }
