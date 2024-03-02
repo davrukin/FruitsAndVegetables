@@ -1,7 +1,5 @@
 package com.davrukin.fruitsandvegetables.remote.paging
 
-import android.util.Log
-import android.util.Log.e
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.davrukin.fruitsandvegetables.data.ProduceItem

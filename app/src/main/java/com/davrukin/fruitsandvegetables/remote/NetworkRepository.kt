@@ -10,7 +10,6 @@ import com.davrukin.fruitsandvegetables.remote.paging.FruitsAndVeggiesPagingSour
 import com.davrukin.fruitsandvegetables.remote.paging.FruitsPagingSource
 import com.davrukin.fruitsandvegetables.remote.paging.VeggiesPagingSource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(

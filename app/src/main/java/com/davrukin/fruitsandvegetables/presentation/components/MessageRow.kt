@@ -14,12 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.davrukin.fruitsandvegetables.data.ProduceItem
-import com.davrukin.fruitsandvegetables.data.ProduceItemPage
-import com.davrukin.fruitsandvegetables.data.ProduceItemType
 import com.davrukin.fruitsandvegetables.ui.theme.FruitsAndVegetablesTheme
 
 @Composable
