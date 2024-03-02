@@ -2,6 +2,7 @@ package com.davrukin.fruitsandvegetables.presentation
 
 import android.content.res.Configuration
 import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.ExperimentalMaterialApi
@@ -13,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -22,13 +22,15 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.compose.itemKey
 import com.davrukin.fruitsandvegetables.R
+import com.davrukin.fruitsandvegetables.data.ProduceItemType
 import com.davrukin.fruitsandvegetables.presentation.components.ErrorMessageRow
+import com.davrukin.fruitsandvegetables.presentation.components.FilterHeader
 import com.davrukin.fruitsandvegetables.presentation.components.InitialLoadProgressIndicator
 import com.davrukin.fruitsandvegetables.presentation.components.ProduceItemRow
 import com.davrukin.fruitsandvegetables.remote.paging.EndOfPagingError
 import com.davrukin.fruitsandvegetables.ui.theme.FruitsAndVegetablesTheme
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun FruitVegScreen(
 	modifier: Modifier = Modifier,
@@ -36,7 +38,11 @@ fun FruitVegScreen(
 ) {
 	val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-	val fruitsAndVeggies = viewModel.fruitsAndVeggies.collectAsLazyPagingItems()
+	val fruitsAndVeggies = when (uiState.selectedProduceItemType) {
+		ProduceItemType.FRUIT -> viewModel.fruits.collectAsLazyPagingItems()
+		ProduceItemType.VEGETABLE -> viewModel.veggies.collectAsLazyPagingItems()
+		null -> viewModel.fruitsAndVeggies.collectAsLazyPagingItems()
+	}
 
 	val context = LocalContext.current
 
@@ -49,6 +55,11 @@ fun FruitVegScreen(
 		LazyColumn(
 			modifier = Modifier,
 			content = {
+				stickyHeader {
+					FilterHeader(
+						onSelectFilter = viewModel::updateSelectedProduceItemType,
+					)
+				}
 				items(
 					count = fruitsAndVeggies.itemCount,
 					key = fruitsAndVeggies.itemKey(),

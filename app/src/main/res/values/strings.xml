@@ -4,4 +4,7 @@
     <string name="error_no_network">No network connection</string>
     <string name="error_end_paging">No more pages to load; Total items loaded = %1$s</string>
     <string name="success_all_loaded">All data loaded. Total items: %1$d</string>
+    <string name="filter_fruits">Fruits</string>
+    <string name="filter_both">Both</string>
+    <string name="filter_veggies">Veggies</string>
 </resources>

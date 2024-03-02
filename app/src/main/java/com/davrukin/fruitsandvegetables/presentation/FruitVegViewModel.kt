@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.davrukin.fruitsandvegetables.data.ProduceItem
+import com.davrukin.fruitsandvegetables.data.ProduceItemType
 import com.davrukin.fruitsandvegetables.remote.NetworkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -26,6 +27,14 @@ class FruitVegViewModel @Inject constructor(
 		viewModelScope.launch {
 			_uiState.update {
 				it.copy(currentState = newState)
+			}
+		}
+	}
+
+	fun updateSelectedProduceItemType(newType: ProduceItemType?) {
+		viewModelScope.launch {
+			_uiState.update {
+				it.copy(selectedProduceItemType = newType)
 			}
 		}
 	}
