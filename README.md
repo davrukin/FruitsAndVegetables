@@ -17,3 +17,9 @@ https://betterprogramming.pub/turn-the-page-overview-of-android-paging3-library-
 https://ktor.io/docs/getting-started-ktor-client.html#create-client
 https://stackoverflow.com/a/74441615
 https://medium.com/backyard-programmers/replacing-retrofit-with-ktor-client-and-kotlin-serialization-for-android-5ca6bfc60648
+https://stackoverflow.com/a/76389741
+https://mockk.io/
+https://developer.android.com/kotlin/coroutines
+https://developer.android.com/kotlin/coroutines/test
+https://developer.android.com/jetpack/compose/testing#common-patterns
+https://developer.android.com/jetpack/compose/testing-cheatsheet

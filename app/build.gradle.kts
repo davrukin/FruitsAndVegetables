@@ -47,7 +47,13 @@ android {
 	}
 	packaging {
 		resources {
-			excludes += "/META-INF/{AL2.0,LGPL2.1}"
+			excludes.addAll(
+				listOf(
+					"/META-INF/{AL2.0,LGPL2.1}",
+					"META-INF/LICENSE.md",
+					"META-INF/LICENSE-notice.md"
+				)
+			)
 		}
 	}
 	kapt {
@@ -71,6 +77,7 @@ dependencies {
 	implementation(libs.paging.compose)
 	implementation(libs.ktor.core)
 	implementation(libs.ktor.cio)
+	implementation(libs.kotlin.coroutines)
 	implementation(libs.kotlin.serialization.json)
 	implementation(libs.retrofit)
 	implementation(libs.retrofit.kotlinx.serialization)
@@ -83,11 +90,18 @@ dependencies {
 	implementation(libs.androidx.material)
 
 	testImplementation(libs.junit)
+	testImplementation(libs.mockk.base)
+	testImplementation(libs.mockk.android)
+	testImplementation(libs.mockk.agent)
+	testImplementation(libs.kotlin.test)
 
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
 	androidTestImplementation(platform(libs.androidx.compose.bom))
 	androidTestImplementation(libs.androidx.ui.test.junit4)
+	androidTestImplementation(libs.mockk.android)
+	androidTestImplementation(libs.mockk.agent)
+	androidTestImplementation(libs.kotlin.test)
 
 	debugImplementation(libs.androidx.ui.tooling)
 	debugImplementation(libs.androidx.ui.test.manifest)
