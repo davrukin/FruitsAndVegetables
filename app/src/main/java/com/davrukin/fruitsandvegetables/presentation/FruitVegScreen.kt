@@ -101,6 +101,8 @@ fun FruitVegScreen(
 
 						if (state.error is EndOfPagingError) {
 							Toast.makeText(context, context.getString(R.string.success_all_loaded, fruitsAndVeggies.itemCount), Toast.LENGTH_LONG).show()
+							// this shows frequently every time loading is completed, rather than just once.
+							// a limit could possibly be added if required or requested.
 						}
 					}
 
