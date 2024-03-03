@@ -8,4 +8,6 @@ class EndOfPagingError(
 ) : Throwable() {
 
 	@StringRes val messageId: Int = R.string.error_end_paging
+
+	// TODO: not technically an "error" per se, rather more informational, but having it as an error makes the code cleaner
 }

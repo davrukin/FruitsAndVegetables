@@ -17,6 +17,6 @@ class NetworkClientRetrofit @Inject constructor(
 
 	override suspend fun getFruits(pageNumber: Int): ProduceItemPage {
 		val fruits = service.getFruits(pageNumber)
-		return fruits.copy(produceItems = fruits.produceItems.map { it.copy(type = ProduceItemType.FRUIT) }) // there might be a better way to do this
+		return fruits.copy(produceItems = fruits.produceItems.map { it.copy(type = ProduceItemType.FRUIT) }) // TODO: there might be a better way to do this
 	}
 }

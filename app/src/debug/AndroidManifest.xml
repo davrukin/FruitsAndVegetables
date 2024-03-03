@@ -9,5 +9,6 @@
             android:name="com.davrukin.fruitsandvegetables.TestMainActivity"
             android:exported="false">
         </activity>
+        <!-- Android Studio complains about the link missing but tests fail without this -->
     </application>
 </manifest>

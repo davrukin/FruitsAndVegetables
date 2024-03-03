@@ -1,6 +1,7 @@
 package com.davrukin.fruitsandvegetables
 
-import org.junit.Assert.assertEquals
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 
 /**
@@ -11,6 +12,6 @@ import org.junit.Test
 class ExampleUnitTest {
 	@Test
 	fun addition_isCorrect() {
-		assertEquals(4, 2 + 2)
+		assertThat(2 + 2, `is`(4))
 	}
 }

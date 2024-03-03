@@ -11,6 +11,8 @@ import javax.inject.Inject
 
 class NetworkClientKtor @Inject constructor() : NetworkClient {
 
+	// TODO: implement later
+
 	override suspend fun getVeggies(pageNumber: Int): ProduceItemPage {
 		val client = HttpClient(CIO)
 		val response = client.get(url)
