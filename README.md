@@ -1,4 +1,8 @@
-Sample app to show fruits and vegetables with filtering
+Sample app to show fruits and vegetables with filtering. Made with MVVM, Retrofit, Paging3, Coroutines, Flow, Hilt, and Clean Architecture using the latest Modern Android Development guidelines.
+
+Screen Capture Video:
+
+[![Screen Capture Video](https://img.youtube.com/vi/aVSM_9Kz12A/hqdefault.jpg)](https://youtu.be/aVSM_9Kz12A)
 
 Sources used:
 
