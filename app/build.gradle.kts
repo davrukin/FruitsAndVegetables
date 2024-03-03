@@ -17,7 +17,7 @@ android {
 		versionCode = 1
 		versionName = "1.0"
 
-		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+		testInstrumentationRunner = "com.davrukin.fruitsandvegetables.HiltTestRunner"
 		vectorDrawables {
 			useSupportLibrary = true
 		}
@@ -86,13 +86,12 @@ dependencies {
 	implementation(libs.okhttp.interceptor)
 	implementation(libs.hilt)
 	kapt(libs.hilt.compiler)
+	kaptTest(libs.hilt.compiler)
 	implementation(libs.hilt.navigation)
 	implementation(libs.androidx.material)
 
 	testImplementation(libs.junit)
 	testImplementation(libs.mockk.base)
-	testImplementation(libs.mockk.android)
-	testImplementation(libs.mockk.agent)
 	testImplementation(libs.kotlin.test)
 
 	androidTestImplementation(libs.androidx.junit)
@@ -102,6 +101,8 @@ dependencies {
 	androidTestImplementation(libs.mockk.android)
 	androidTestImplementation(libs.mockk.agent)
 	androidTestImplementation(libs.kotlin.test)
+	androidTestImplementation(libs.hilt.test)
+	kaptAndroidTest(libs.hilt.compiler)
 
 	debugImplementation(libs.androidx.ui.tooling)
 	debugImplementation(libs.androidx.ui.test.manifest)
